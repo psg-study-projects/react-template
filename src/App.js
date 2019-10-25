@@ -10,6 +10,7 @@ import Stub from './components/dashboard/Stub';
 //import EditProfile from './components/profile-forms/EditProfile';
 //import AddExperience from './components/profile-forms/AddExperience';
 //import AddEducation from './components/profile-forms/AddEducation';
+import Listings from './components/listings/Listings';
 //import Profiles from './components/profiles/Profiles';
 //import Profile from './components/profile/Profile';
 //import Posts from './components/posts/Posts';
@@ -19,7 +20,7 @@ import Stub from './components/dashboard/Stub';
 
 // Redux
 import { Provider } from 'react-redux';
-//import store from './store';
+import store from './store';
 //import { loadUser } from './actions/auth';
 //import setAuthToken from './utils/setAuthToken';
 
@@ -42,6 +43,7 @@ const App = () => {
     */
 
         return (
+            <Provider store={store}>
                 <Router>
                     <Fragment>
                         {/*
@@ -54,7 +56,7 @@ const App = () => {
                         */}
                         <Switch>
                             <Route path='/dashboard' component={Stub} />
-                            <Route path='/foo' component={Stub} />
+                            <Route path='/listings' component={Listings} />
                             {/*
                             <Route exact path='/register' component={Register} />
                             <Route exact path='/login' component={Login} />
@@ -71,6 +73,7 @@ const App = () => {
                     </section>
                 </Fragment>
             </Router>
+            </Provider>
         )
 };
 
@@ -78,6 +81,4 @@ export default App;
 
 
 {/*
-<Provider store={store}>
-</Provider>
 */}
