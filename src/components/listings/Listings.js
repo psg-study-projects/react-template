@@ -58,13 +58,13 @@ const Listings = ({
     return <Fragment> 
         { console.log('Lisings::render() -- g_loading = '+g_loading) }
         <h2>Search Form</h2>
-        <form className="form" onSubmit={e=> onSubmit(e)} >
+        <form className="form" onSubmit={e=> onSubmit(e)} className="mb-5">
             <div className="form-group">
-                <input type="text" placeholder="Enter search term..." name="querystr" value={querystr} onChange={e => onChange(e)} />
+                <input type="text" placeholder="Enter search term..." name="querystr" value={querystr} onChange={e => onChange(e)}  className="form-control" />
             </div>
             <div className="form-group">
                 { g_loading ?  '' :
-                <select name="qgeolocation" value={qgeolocation} onChange={e => onChange(e)}>
+                <select name="qgeolocation" value={qgeolocation} onChange={e => onChange(e)} className="form-control">
                     <option value="0">Please choose a city...</option>
                     { geolocations.map( (g, iter)  => (<option key={g.city} value={g.city+', '+g.state}>{g.city+', '+g.state}</option>)) }
                 </select> }

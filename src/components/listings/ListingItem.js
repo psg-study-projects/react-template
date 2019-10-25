@@ -16,6 +16,8 @@ const ListingItem = ({
             <div>
                 <h4>{listing.name}</h4>
                 <p>{listing.s_desc}</p>
+                <p><em>{listing.caption}</em></p>
+                <p>{listing.fmt_phone}</p>
             </div>
         </div>;
     }

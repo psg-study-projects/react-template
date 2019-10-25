@@ -27,3 +27,4 @@ yarn-error.log*
 .swp
 
 vs_devconnect.foldercomparison
+*.vim
