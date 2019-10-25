@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { connect }  from 'react-redux';
 import { getListings }  from '../../actions/listing';
 import Spinner from '../layout/Spinner';
-//import ListingItem from './ListingItem';
+import ListingItem from './ListingItem';
 
 // %TODO [ ] Nest a form in this component, that's where 'query' comes from
 const Listings = ({ 
     getListings,
-    listing: { listings, loading }
+    listing: { profiles, listings, loading }
 }) => {
 
     // https://reactjs.org/docs/hooks-state.html
@@ -61,13 +61,11 @@ const Listings = ({
                 : 
                 <Fragment>
                     <h2 className="large text-primary">Listings</h2>
-                    {/*
                     <div className="listings">
-                        {listings.length > 0 
-                                ? ( listings.map(listing => (<ListingItem key={listing._Id} listing={listing} />)) ) 
+                        {profiles.results.paid_listings.listing.length > 0 
+                                ? ( profiles.results.paid_listings.listing.map(l => (<ListingItem key={l.l_id} listing={l} />)) ) 
                                 : <h4>No listings found...</h4>}
                     </div>
-                    */}
                 </Fragment> }
             </Fragment>;
 }

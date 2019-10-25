@@ -11,8 +11,8 @@ import Stub from './components/dashboard/Stub';
 //import AddExperience from './components/profile-forms/AddExperience';
 //import AddEducation from './components/profile-forms/AddEducation';
 import Listings from './components/listings/Listings';
+import ListingItem from './components/listings/ListingItem';
 //import Profiles from './components/profiles/Profiles';
-//import Profile from './components/profile/Profile';
 //import Posts from './components/posts/Posts';
 //import Post from './components/post/Post';
 //import PrivateRoute from './components/routing/PrivateRoute';
@@ -57,6 +57,7 @@ const App = () => {
                         <Switch>
                             <Route path='/dashboard' component={Stub} />
                             <Route path='/listings' component={Listings} />
+                            <Route exact path='/listing/:id' component={ListingItem} />
                             {/*
                             <Route exact path='/register' component={Register} />
                             <Route exact path='/login' component={Login} />
