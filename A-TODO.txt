@@ -1,0 +1,45 @@
+[/] un-hardcode api call: move query params to static or input
+[/] simple listings display
+[ ] Geo filter: dropdown from list (short version, hardcoded JSON)
+[ ] Add BS4
+[ ] Initial style work
+[ ] Initial deploy
+
+[
+{
+    city: 'Chicago',
+    state: 'IL'
+},
+{
+    city: 'Los Angeles',
+    state: 'CA'
+},
+{
+    city: 'New York',
+    state: 'NY'
+},
+{
+    city: 'Philadelphia',
+    state: 'PA'
+},
+{
+    city: 'Miami',
+    state: 'FL'
+},
+{
+    city: 'Houston',
+    state: 'TX'
+},
+{
+    city: 'Las Vegas',
+    state: 'NV'
+},
+{
+    city: 'San Francisco',
+    state: 'CA'
+},
+{
+    city: 'Seattle',
+    state: 'WA'
+}
+]
