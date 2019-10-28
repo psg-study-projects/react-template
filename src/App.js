@@ -50,7 +50,7 @@ const App = () => {
                     <Navbar />
                     <Route exact path='/' component={Landing} />
                     */}
-                    <section className="container">
+                    <section className="OFF-container">
                         {/*
                         <Alert />
                         */}

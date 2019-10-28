@@ -6,6 +6,7 @@ import { getListings }  from '../../actions/listing';
 import { getGeolocations }  from '../../actions/geolocation';
 import Spinner from '../layout/Spinner';
 import ListingItem from './ListingItem';
+import 'startbootstrap-landing-page/css/landing-page.css';
 
 // %TODO [ ] Nest a form in this component, that's where 'query' comes from
 const Listings = ({ 
@@ -56,33 +57,54 @@ const Listings = ({
     };
 
     return <Fragment> 
-        { console.log('Lisings::render() -- g_loading = '+g_loading) }
-        <h2>Search Form</h2>
-        <form className="form" onSubmit={e=> onSubmit(e)} className="mb-5">
-            <div className="form-group">
-                <input type="text" placeholder="Enter search term..." name="querystr" value={querystr} onChange={e => onChange(e)}  className="form-control" />
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">GT Search</a>
+                <a class="btn btn-primary" href="#">Sign In</a>
             </div>
-            <div className="form-group">
-                { g_loading ?  '' :
-                <select name="qgeolocation" value={qgeolocation} onChange={e => onChange(e)} className="form-control">
-                    <option value="0">Please choose a city...</option>
-                    { geolocations.map( (g, iter)  => (<option key={g.city} value={g.city+', '+g.state}>{g.city+', '+g.state}</option>)) }
-                </select> }
+        </nav>
+        <header class="masthead text-white text-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
+                    </div>
+                    <div class="col-md-12 col-lg-10 col-xl-8 mx-auto">
+                        <form className="OFF-form" onSubmit={e=> onSubmit(e)} className="mb-5">
+                            <div class="form-row">
+                                <div class="col-12 col-md-6 mb-2 mb-md-0">
+                                    <input type="text" placeholder="Enter search term..." name="querystr" value={querystr} onChange={e => onChange(e)}  className="form-control form-control-lg" />
+                                </div>
+                                <div class="col-12 col-md-4 mb-2 mb-md-0">
+                                    { g_loading ?  '' :
+                                            <select name="qgeolocation" value={qgeolocation} onChange={e => onChange(e)} className="form-control form-control-lg">
+                                                <option value="0">Please choose a city...</option>
+                                                { geolocations.map( (g, iter)  => (<option key={g.city} value={g.city+', '+g.state}>{g.city+', '+g.state}</option>)) }
+                                            </select> 
+                                    }
+                                </div>
+                                <div class="col-12 col-md-2">
+                                    <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <input type="submit" className="btn btn-primary my-1" />
-        </form>
-        { l_loading ? 
-                <Spinner /> 
-                : 
+        </header>
+        { l_loading ?  <Spinner /> : 
                 <Fragment>
                     <h2 className="large text-primary">Listings</h2>
                     <div className="listings">
                         {listings.results.paid_listings.listing.length > 0 
                                 ? ( listings.results.paid_listings.listing.map(l => (<ListingItem key={l.l_id} listing={l} />)) ) 
-                                : <h4>No listings found...</h4>}
+                                : <h4>No listings found...</h4>
+                        }
                     </div>
-                </Fragment> }
-            </Fragment>;
+                </Fragment> 
+        }
+    </Fragment>;
 }
 
 Listings.propTypes = {
