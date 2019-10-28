@@ -7,6 +7,7 @@ import { getGeolocations }  from '../../actions/geolocation';
 import Spinner from '../layout/Spinner';
 import ListingItem from './ListingItem';
 import 'startbootstrap-landing-page/css/landing-page.css';
+import brandLogo from '../../assets/images/GT_symbol_sml_use_blk_rgb_300.png';
 
 // %TODO [ ] Nest a form in this component, that's where 'query' comes from
 const Listings = ({ 
@@ -59,7 +60,7 @@ const Listings = ({
     return <Fragment> 
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#">GT Search</a>
+                <a class="navbar-brand" href="#"><img src={brandLogo} width="30" alt="GT Search Logo" /> GroundTruth Search</a>
                 <a class="btn btn-primary" href="#">Sign In</a>
             </div>
         </nav>
@@ -68,7 +69,7 @@ const Listings = ({
             <div class="container">
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
-                        <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
+                        <h1 class="mb-5">Dolorum Ut In Voluptas Mollitia</h1>
                     </div>
                     <div class="col-md-12 col-lg-10 col-xl-8 mx-auto">
                         <form className="OFF-form" onSubmit={e=> onSubmit(e)} className="mb-5">
