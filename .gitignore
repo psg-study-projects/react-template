@@ -28,3 +28,7 @@ yarn-error.log*
 
 vs_devconnect.foldercomparison
 *.vim
+
+tmp
+
+*.tgz
