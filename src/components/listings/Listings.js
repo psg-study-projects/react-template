@@ -66,14 +66,14 @@ const Listings = ({
 
     return <Fragment> 
         <nav className="navbar navbar-light bg-light static-top">
-            <div className="container">
+            <section className="container">
                 <a className="navbar-brand" href="#"><img src={brandLogo} width="30" alt="GT Search Logo" /> GroundTruth Search</a>
                 <a className="btn btn-primary" href="#">Sign In</a>
-            </div>
+            </section>
         </nav>
         <header className="masthead text-white text-center">
             <div className="overlay"></div>
-            <div className="container">
+            <section className="container">
                 <div className="row">
                     <div className="col-xl-9 mx-auto">
                         <h1 className="mb-5">Dolorum Ut In Voluptas Mollitia</h1>
@@ -99,56 +99,65 @@ const Listings = ({
                         </form>
                     </div>
                 </div>
-            </div>
+            </section>
         </header>
-        { l_loading ?  <Spinner /> : 
+
+
+                { l_loading ?  <div></div> : 
                 <Fragment>
-                    <h2 className="large text-primary">Listings</h2>
-                    <div className="listings">
-                        {listings.results.paid_listings.listing.length > 0 
-                                ? ( listings.results.paid_listings.listing.map(l => (<ListingItem key={l.l_id} listing={l} />)) ) 
-                                : <h4>No listings found...</h4>
-                        }
-                    </div>
+                    <section className="container mt-3 mb-3">
+                        <div className="row">
+                            <div className="col-12 col-md-10 mx-auto">
+                                <h2 className="large text-primary">Listings</h2>
+                                <div className="list-group">
+                                    {listings.results.paid_listings.listing.length > 0 
+                                            ? ( listings.results.paid_listings.listing.map(l => (<ListingItem key={l.l_id} listing={l} />)) ) 
+                                            : <h4>No listings found...</h4>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </Fragment> 
-        }
-        <section className="features-icons bg-light text-center">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-4">
-                        <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div className="features-icons-icon d-flex">
-                                <i className="icon-screen-desktop m-auto text-primary"></i>
+                }
+
+                <section className="features-icons bg-light text-center">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-4">
+                                <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                                    <div className="features-icons-icon d-flex">
+                                        <i className="icon-screen-desktop m-auto text-primary"></i>
+                                    </div>
+                                    <h3>Fully Responsive</h3>
+                                    <p className="lead mb-0">This theme will look great on any device, no matter the size!</p>
+                                </div>
                             </div>
-                            <h3>Fully Responsive</h3>
-                            <p className="lead mb-0">This theme will look great on any device, no matter the size!</p>
+                            <div className="col-lg-4">
+                                <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                                    <div className="features-icons-icon d-flex">
+                                        <i className="icon-layers m-auto text-primary"></i>
+                                    </div>
+                                    <h3>Bootstrap 4 Ready</h3>
+                                    <p className="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
+                                </div>
+                            </div>
+                            <div className="col-lg-4">
+                                <div className="features-icons-item mx-auto mb-0 mb-lg-3">
+                                    <div className="features-icons-icon d-flex">
+                                        <i className="icon-check m-auto text-primary"></i>
+                                    </div>
+                                    <h3>Easy to Use</h3>
+                                    <p className="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-lg-4">
-                        <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div className="features-icons-icon d-flex">
-                                <i className="icon-layers m-auto text-primary"></i>
-                            </div>
-                            <h3>Bootstrap 4 Ready</h3>
-                            <p className="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
-                        </div>
-                    </div>
-                    <div className="col-lg-4">
-                        <div className="features-icons-item mx-auto mb-0 mb-lg-3">
-                            <div className="features-icons-icon d-flex">
-                                <i className="icon-check m-auto text-primary"></i>
-                            </div>
-                            <h3>Easy to Use</h3>
-                            <p className="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section className="showcase">
-            <div className="container-fluid p-0">
-                <div className="row no-gutters">
-                    {/*
+                </section>
+                <section className="showcase">
+                    <div className="container-fluid p-0">
+                        <div className="row no-gutters">
+                            {/*
                     <div className="col-lg-6 order-lg-2 text-white showcase-img"  style={{ backgroundImage: `url(require("startbootstrap-landing-page/img/bg-showcase-1.jpg"))` }}></div>
                     */}
                     <div className="col-lg-6 order-lg-2 text-white showcase-img"  style={{ backgroundImage: "url("+showcase1+")" }}></div>
