@@ -1,0 +1,37 @@
+
+
+I tried a quick experiment...the site 
+
+    https://jsonplaceholder.typicode.com/
+
+Offers a free API for testing & development. 
+
+
+Run these directly in Chrome inspector console:
+
+(1) Call to json placeholder api, which supports CORS
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+fetch('https://jsonplaceholder.typicode.com/todos/1', { mode: 'no-cors' })
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+
+(2) Call to GT API...
+
+fetch('http://local.xad.com/rest/local?i=Tax%20Consultants&lat=40.7364911&long=-73.8779137&uid=0717320a6078&l=ad&k=38zQLicqMz8xQPlCv89KH5WWfjeeoBeQQ9SWV6Jl3J2WnxpoJcBJdg%3D%3D&v=1.2&n_ad=5&ip=68.168.82.68&co=us&o_fmt=JSON&loc=Gallatin,TN')
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+fetch('http://local.xad.com/rest/local?i=Tax%20Consultants&lat=40.7364911&long=-73.8779137&uid=0717320a6078&l=ad&k=38zQLicqMz8xQPlCv89KH5WWfjeeoBeQQ9SWV6Jl3J2WnxpoJcBJdg%3D%3D&v=1.2&n_ad=5&ip=68.168.82.68&co=us&o_fmt=JSON&loc=Gallatin,TN', {mode: 'no-cors'} )
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+fetch('http://local.xad.com/rest/local?i=Tax%20Consultants&lat=40.7364911&long=-73.8779137&uid=0717320a6078&l=ad&k=38zQLicqMz8xQPlCv89KH5WWfjeeoBeQQ9SWV6Jl3J2WnxpoJcBJdg%3D%3D&v=1.2&n_ad=5&ip=68.168.82.68&co=us&o_fmt=JSON&loc=Gallatin,TN', {cache: 'no-cache'} )
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+See results in screenshots.

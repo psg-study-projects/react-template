@@ -12,14 +12,14 @@ const ListingItem = ({
     }
     */
     }) => {
-        return <div className="listing bg-light"> 
-            <div>
-                <h4>{listing.name}</h4>
-                <p>{listing.s_desc}</p>
-                <p><em>{listing.caption}</em></p>
-                <p>{listing.fmt_phone}</p>
+        return <a href="#" class="list-group-item list-group-item-action mb-3">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{listing.name}</h5>
+                <small class="text-muted">{listing.fmt_phone}</small>
             </div>
-        </div>;
+            <p class="mb-1">{listing.s_desc}</p>
+            <small class="text-muted">{listing.caption}</small>
+        </a>;
     }
 
 ListingItem.propTypes = {

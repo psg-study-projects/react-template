@@ -2,3 +2,6 @@
 $ npm start
 
 $ npm run build
+
+$ tar cvzf ./build-20191025.tgz build
+$ scp build-20191025.tgz psgc-aws-2:/home/ubuntu
