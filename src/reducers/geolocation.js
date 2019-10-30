@@ -1,9 +1,11 @@
 import { 
+    GET_GEOLOCATION, 
     GET_GEOLOCATIONS, 
     GEOLOCATION_ERROR
 } from '../actions/types';
 
 const initialState = {
+    geolocation: null,
     geolocations: [],
     loading: true, // once we make a request, set to false
     error: { } // store any request errors
@@ -18,6 +20,12 @@ export default function(state=initialState, action) {
             return {
                 ...state,
                 geolocations: payload,
+                loading: false
+            };
+        case GET_GEOLOCATION:
+            return {
+                ...state,
+                geolocation: payload,
                 loading: false
             };
         case GEOLOCATION_ERROR:
