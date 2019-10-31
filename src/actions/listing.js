@@ -8,16 +8,10 @@ import {
 
 
 // Get all listings
-export const getListings = (query) => async dispatch => {
+//export const getListings = (query) => async dispatch =>
+export const getListings = (query) => (dispatch) => {
+    console.log('actions/listings::getListings()');
     console.log(query);
-    /*
-    const query = {
-        i: 'Tax Consultants',
-        lat: 40.7364911,
-        long: -73.8779137,
-        loc: 'Gallatin,TN'
-    };
-    */
     const payload = {
         ...query,
         uid: '0717320a6078',
@@ -29,15 +23,38 @@ export const getListings = (query) => async dispatch => {
         co: 'us',
         o_fmt: 'JSON'
     };
-    console.log('actions/listings::getListings()');
-    //dispatch({ type: CLEAR_LISTING }); // prevent flicker of past user's listing
+
     try {
-        const res = await axios.get('/rest/local', {
-            params: payload
+        /*
+        new Promise(function(resolve, reject) {
+            const res = await axios.get('/rest/local', {
+                params: payload
+            });
+            dispatch({
+                type: GET_LISTINGS,
+                payload: {
+                    ...res.data,
+                    geoslug: 'chicago'
+                }
+            });
+            resolve();
         });
-        dispatch({
-            type: GET_LISTINGS,
-            payload: res.data
+        */
+        return new Promise(function(resolve, reject) {
+            axios.get( '/rest/local', { params: payload } )
+                .then( res => {
+                    dispatch({
+                        type: GET_LISTINGS,
+                        payload: res.data
+                        /*
+                        payload: {
+                            ...res.data,
+                            geoslug: 'chicago'
+                        }
+                        */
+                    });
+                    resolve(res);
+                });
         });
     } catch(err) {
         dispatch({
@@ -46,3 +63,26 @@ export const getListings = (query) => async dispatch => {
         });
     }
 }
+
+/*
+static myActionCreator(somevar) {
+  return dispatch => {
+    return new Promise((resolve, reject) => {
+      dispatch({
+        type: "myaction",
+        something: somevar
+      });
+
+      resolve()
+    });
+  }
+}
+*/
+/*
+    const query = {
+        i: 'Tax Consultants',
+        lat: 40.7364911,
+        long: -73.8779137,
+        loc: 'Gallatin,TN'
+    };
+    */

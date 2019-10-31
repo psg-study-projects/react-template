@@ -12,13 +12,28 @@ import showcase1 from 'startbootstrap-landing-page/img/bg-showcase-1.jpg';
 import showcase2 from 'startbootstrap-landing-page/img/bg-showcase-2.jpg';
 import showcase3 from 'startbootstrap-landing-page/img/bg-showcase-3.jpg';
 
+
+import { useHistory } from "react-router-dom";
+
+
 // %TODO [ ] Nest a form in this component, that's where 'query' comes from
 const Listings = ({ 
+    //dispatch,
     getListings,
     getGeolocations,
     listing: { listings, loading: l_loading },
     geolocation : { geolocations, loading: g_loading },
 }) => {
+
+    // https://stackoverflow.com/questions/31079081/programmatically-navigate-using-react-router
+    // https://medium.com/collaborne-engineering/returning-promises-from-redux-action-creators-3035f34fa74b
+    // https://stackoverflow.com/questions/47565389/call-function-after-dispatch-from-redux-has-finished
+    // https://redux.js.org/advanced/async-actions
+    // https://github.com/reduxjs/redux-thunk
+    // https://stackoverflow.com/questions/35069212/return-promise-from-store-after-redux-thunk-dispatch
+    // https://stackoverflow.com/questions/39524855/how-to-trigger-off-callback-after-updating-state-in-redux
+    // https://stackoverflow.com/questions/52737078/how-can-you-use-axios-interceptors
+    let history = useHistory();
 
     // https://reactjs.org/docs/hooks-state.html
     const [formData, setFormData] = useState({
@@ -56,6 +71,13 @@ const Listings = ({
             //lat: 40.7364911,
             //long: -73.8779137,
             loc: formData.qgeolocation
+        })
+        .then(res => {
+            //console.log('getListings promise resolved');
+            //console.log(res);
+            //console.log('getListings promise resolved: '+res.data.results.geoslug);
+            history.push(`/region/${res.data.results.geoslug}`);
+            //console.log(geoslug);
         });
         //createProfile(formData, history, true);
     };
@@ -105,6 +127,7 @@ const Listings = ({
 
                 { l_loading ?  <div></div> : 
                 <Fragment>
+                    <p>GeoSlug: {listings.results.geoslug} </p>
                     <section className="container mt-3 mb-3">
                         <div className="row">
                             <div className="col-12 col-md-10 mx-auto">
@@ -204,8 +227,22 @@ const mapStateToProps = state => ({
     geolocation: state.geolocation
 });
 
+/*
+// https://react-redux.js.org/using-react-redux/connect-mapdispatch
+const mapDispatchToProps = dispatch => {
+  return {
+      //getListings: () => dispatch(getListings()),
+      //getGeolocations: () => dispatch(getGeolocations()),
+    getListings,
+    getGeolocations,
+    dispatch
+  }
+}
+*/
+
 
 export default connect(
     mapStateToProps, 
+    //mapDispatchToProps
     { getListings, getGeolocations } 
 )(Listings);
