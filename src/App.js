@@ -11,6 +11,7 @@ import Stub from './components/dashboard/Stub';
 //import AddExperience from './components/profile-forms/AddExperience';
 //import AddEducation from './components/profile-forms/AddEducation';
 import Geolocation from './components/geolocations/Geolocation';
+import Landing from './components/landing/Landing';
 import Listings from './components/listings/Listings';
 import ListingItem from './components/listings/ListingItem';
 //import Profiles from './components/profiles/Profiles';
@@ -56,6 +57,7 @@ const App = () => {
                         <Alert />
                         */}
                         <Switch>
+                            <Route exact path='/' component={Landing} />
                             <Route path='/dashboard' component={Stub} />
                             <Route path='/listings' component={Listings} />
                             <Route exact path='/listing/:id' component={ListingItem} />
