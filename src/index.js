@@ -10,6 +10,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 //axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 
 
+// %FIXME
 function slugify(s) {
   return s
     .toString()
