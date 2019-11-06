@@ -1,15 +1,16 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //import Alert from './components/layout/Alert';
 //import Navbar from './components/layout/Navbar';
 //import Landing from './components/layout/Landing';
 //import Login from './components/auth/Login';
 //import Dashboard from './components/dashboard/Dashboard';
-import Stub from './components/dashboard/Stub';
 //import CreateProfile from './components/profile-forms/CreateProfile';
 //import EditProfile from './components/profile-forms/EditProfile';
 //import AddExperience from './components/profile-forms/AddExperience';
 //import AddEducation from './components/profile-forms/AddEducation';
+import Geolocation from './components/geolocations/Geolocation';
+import Landing from './components/landing/Landing';
 import Listings from './components/listings/Listings';
 import ListingItem from './components/listings/ListingItem';
 //import Profiles from './components/profiles/Profiles';
@@ -49,15 +50,16 @@ const App = () => {
                         {/*
                     <Navbar />
                     <Route exact path='/' component={Landing} />
-                    */}
                     <section className="OFF-container">
+                    */}
                         {/*
                         <Alert />
                         */}
                         <Switch>
-                            <Route path='/dashboard' component={Stub} />
+                            <Route exact path='/' component={Landing} />
                             <Route path='/listings' component={Listings} />
                             <Route exact path='/listing/:id' component={ListingItem} />
+                            <Route exact path='/region/:id' component={Geolocation} />
                             {/*
                             <Route exact path='/register' component={Register} />
                             <Route exact path='/login' component={Login} />
@@ -71,7 +73,9 @@ const App = () => {
                             <PrivateRoute exact path='/posts/:id' component={Post} />
                             */}
                         </Switch>
+                        {/*
                     </section>
+                            */}
                 </Fragment>
             </Router>
             </Provider>
@@ -79,7 +83,3 @@ const App = () => {
 };
 
 export default App;
-
-
-{/*
-*/}

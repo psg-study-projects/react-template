@@ -1,5 +1,6 @@
 export const GET_LISTINGS           = 'GET_LISTINGS';
 export const LISTING_ERROR          = 'LISTING_ERROR';
+export const GET_GEOLOCATION        = 'GET_GEOLOCATION';
 export const GET_GEOLOCATIONS       = 'GET_GEOLOCATIONS';
 export const GEOLOCATION_ERROR      = 'GEOLOCATION_ERROR';
 export const REMOVE_ALERT           = 'REMOVE_ALERT';
