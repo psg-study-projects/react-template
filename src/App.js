@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Geolocation from './components/geolocations/Geolocation';
 import Landing from './components/landing/Landing';
 import Listings from './components/listings/Listings';
-import ListingItem from './components/listings/ListingItem';
+import ListingDetail from './components/listings/ListingDetail';
 import Terms from './components/common/Terms';
 import Privacy from './components/common/Privacy';
 //import Profiles from './components/profiles/Profiles';
@@ -61,8 +61,8 @@ const App = () => {
                             <Route exact path='/' component={Landing} />
                             <Route exact path='/terms' component={Terms} />
                             <Route exact path='/privacy' component={Privacy} />
-                            <Route path='/listings' component={Listings} />
-                            <Route exact path='/listing/:id' component={ListingItem} />
+                            <Route exact path='/listings' component={Listings} />
+                            <Route exact path='/listings/:id' component={ListingDetail} />
                             <Route exact path='/region/:id' component={Geolocation} />
                             {/*
                             <Route exact path='/register' component={Register} />
