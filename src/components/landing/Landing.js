@@ -1,17 +1,14 @@
-import React, { Fragment, useState, useEffect } from 'react'; /* useEffect: call get Profiles action from  ...*/
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect }  from 'react-redux';
 import { getListings }  from '../../actions/listing';
 import { getGeolocations }  from '../../actions/geolocation';
-import Spinner from '../layout/Spinner';
 import SearchForm from '../../components/listings/SearchForm';
 import MajorNav from '../../components/common/MajorNav';
 import 'startbootstrap-landing-page/css/landing-page.css';
 import showcase1 from 'startbootstrap-landing-page/img/bg-showcase-1.jpg';
 import showcase2 from 'startbootstrap-landing-page/img/bg-showcase-2.jpg';
 import showcase3 from 'startbootstrap-landing-page/img/bg-showcase-3.jpg';
-
-import { useHistory } from "react-router-dom";
 
 // %TODO [ ] Nest a form in this component, that's where 'query' comes from
 const Landing = ({ 
@@ -21,10 +18,6 @@ const Landing = ({
     listing: { listings, loading: l_loading },
     geolocation : { geolocations, loading: g_loading },
 }) => {
-
-    const bgShowcase1 = { backgroundImage: "url(" + { showcase1 } + ")" };
-    const bgShowcase2 = { backgroundImage: "url(" + { showcase2 } + ")" };
-    const bgShowcase3 = { backgroundImage: "url(" + { showcase3 } + ")" };
 
     return <Fragment> 
         <MajorNav />

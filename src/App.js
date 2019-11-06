@@ -1,11 +1,10 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //import Alert from './components/layout/Alert';
 //import Navbar from './components/layout/Navbar';
 //import Landing from './components/layout/Landing';
 //import Login from './components/auth/Login';
 //import Dashboard from './components/dashboard/Dashboard';
-import Stub from './components/dashboard/Stub';
 //import CreateProfile from './components/profile-forms/CreateProfile';
 //import EditProfile from './components/profile-forms/EditProfile';
 //import AddExperience from './components/profile-forms/AddExperience';
@@ -58,7 +57,6 @@ const App = () => {
                         */}
                         <Switch>
                             <Route exact path='/' component={Landing} />
-                            <Route path='/dashboard' component={Stub} />
                             <Route path='/listings' component={Listings} />
                             <Route exact path='/listing/:id' component={ListingItem} />
                             <Route exact path='/region/:id' component={Geolocation} />
@@ -83,7 +81,3 @@ const App = () => {
 };
 
 export default App;
-
-
-{/*
-*/}

@@ -1,10 +1,8 @@
 // racfp (arrow function w/ prop types)
-import React, { Fragment, useState, useEffect } from 'react'; /* useEffect: call get Profiles action from  ...*/
+import React, { Fragment, useEffect } from 'react'; /* useEffect: call get Profiles action from  ...*/
 import PropTypes from 'prop-types';
 import { connect }  from 'react-redux';
 import Spinner from '../layout/Spinner';
-//import 'startbootstrap-landing-page/css/landing-page.css';
-import ListingItem from '../../components/listings/ListingItem';
 import Listings from '../../components/listings/Listings';
 import SearchForm from '../../components/listings/SearchForm';
 import MajorNav from '../../components/common/MajorNav';

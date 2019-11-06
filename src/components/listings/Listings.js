@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect }  from 'react-redux';
 import { getListings }  from '../../actions/listing';
 import { getGeolocations }  from '../../actions/geolocation';
-import Spinner from '../layout/Spinner';
 import ListingItem from './ListingItem';
 import 'startbootstrap-landing-page/css/landing-page.css';
 
