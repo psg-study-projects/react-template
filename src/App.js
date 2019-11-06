@@ -15,6 +15,7 @@ import Listings from './components/listings/Listings';
 import ListingDetail from './components/listings/ListingDetail';
 import Terms from './components/common/Terms';
 import Privacy from './components/common/Privacy';
+import Register from './components/common/Register';
 //import Profiles from './components/profiles/Profiles';
 //import Posts from './components/posts/Posts';
 //import Post from './components/post/Post';
@@ -64,6 +65,7 @@ const App = () => {
                             <Route exact path='/listings' component={Listings} />
                             <Route exact path='/listings/:id' component={ListingDetail} />
                             <Route exact path='/region/:id' component={Geolocation} />
+                            <Route exact path='/more-info' component={Register} />
                             {/*
                             <Route exact path='/register' component={Register} />
                             <Route exact path='/login' component={Login} />

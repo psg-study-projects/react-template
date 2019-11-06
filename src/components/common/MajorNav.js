@@ -10,7 +10,7 @@ const MajorNav = () => {
             <nav className="navbar navbar-light bg-light static-top">
                 <section className="container">
                     <Link to="/" className="navbar-brand"><img src={brandLogo} width="30" alt="GT Search Logo" /> GroundTruth Search</Link>
-                    <a className="btn btn-primary" href="#">Sign In</a>
+                    <Link to="/more-info" className="btn btn-primary">More Info on Groundtruth Search</Link>
                 </section>
             </nav>
         </Fragment> 
