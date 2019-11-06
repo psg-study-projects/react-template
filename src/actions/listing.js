@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { 
     GET_LISTINGS, 
+    GET_DETAILS, 
     LISTING_ERROR
 } from '../actions/types';
 
@@ -24,21 +25,6 @@ export const getListings = (query) => (dispatch) => {
     };
 
     try {
-        /*
-        new Promise(function(resolve, reject) {
-            const res = await axios.get('/rest/local', {
-                params: payload
-            });
-            dispatch({
-                type: GET_LISTINGS,
-                payload: {
-                    ...res.data,
-                    geoslug: 'chicago'
-                }
-            });
-            resolve();
-        });
-        */
         return new Promise(function(resolve, reject) {
             axios.get( '/rest/local', { params: payload } )
                 .then( res => {
@@ -63,6 +49,43 @@ export const getListings = (query) => (dispatch) => {
     }
 }
 
+export const getDetails = (query) => (dispatch) => {
+
+    console.log('actions/listings::getDetails(): BEGIN');
+    console.log(query);
+
+    const payload = {
+        ...query,
+        uid: '0717320a6078',
+        k: '38zQLicqMz8xQPlCv89KH5WWfjeeoBeQQ9SWV6Jl3J2WnxpoJcBJdg==',
+        l: 'ad',
+        v: '1.2',
+        n_ad: '5',
+        ip: '68.168.82.68',
+        co: 'us',
+        o_fmt: 'JSON'
+    };
+
+    return new Promise(function(resolve, reject) {
+        axios.get( '/rest/more_info', { params: payload } )
+            .then( res => {
+                console.log('actions/listings::getDetails(): dispatch GET_DETAILS');
+                dispatch({
+                    type: GET_DETAILS,
+                    payload: res.data
+                });
+                resolve(res);
+            }).catch(function (err) {
+                console.log('actions/listings::getDetails(): dispatch LISTING_ERROR');
+                dispatch({
+                    type: LISTING_ERROR,
+                    payload: { msg: err.message, status: 'error_more_info' }
+                });
+                reject(err);
+            });
+    });
+}
+
 /*
 static myActionCreator(somevar) {
   return dispatch => {
@@ -85,3 +108,18 @@ static myActionCreator(somevar) {
         loc: 'Gallatin,TN'
     };
     */
+/*
+        new Promise(function(resolve, reject) {
+            const res = await axios.get('/rest/local', {
+                params: payload
+            });
+            dispatch({
+                type: GET_LISTINGS,
+                payload: {
+                    ...res.data,
+                    geoslug: 'chicago'
+                }
+            });
+            resolve();
+        });
+        */

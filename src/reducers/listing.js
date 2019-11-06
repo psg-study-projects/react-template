@@ -1,10 +1,12 @@
 import { 
     GET_LISTINGS, 
+    GET_DETAILS, 
     LISTING_ERROR
 } from '../actions/types';
 
 const initialState = {
     listings: [],
+    details: {},
     loading: true, // once we make a request, set to false
     error: { } // store any request errors
 }
@@ -19,6 +21,12 @@ export default function(state=initialState, action) {
             return {
                 ...state,
                 listings: payload,
+                loading: false
+            };
+        case GET_DETAILS:
+            return {
+                ...state,
+                details: payload,
                 loading: false
             };
         case LISTING_ERROR:

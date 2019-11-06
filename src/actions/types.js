@@ -1,4 +1,5 @@
 export const GET_LISTINGS           = 'GET_LISTINGS';
+export const GET_DETAILS            = 'GET_DETAILS';
 export const LISTING_ERROR          = 'LISTING_ERROR';
 export const GET_GEOLOCATION        = 'GET_GEOLOCATION';
 export const GET_GEOLOCATIONS       = 'GET_GEOLOCATIONS';
