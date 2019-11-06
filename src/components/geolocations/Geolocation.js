@@ -7,6 +7,7 @@ import Listings from '../../components/listings/Listings';
 import SearchForm from '../../components/listings/SearchForm';
 import MajorNav from '../../components/common/MajorNav';
 import { getGeolocation }  from '../../actions/geolocation';
+import './Geolocation.css';
 
 const Geolocation = ({ 
     getGeolocation,

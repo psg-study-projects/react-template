@@ -53,7 +53,7 @@ const SearchForm = ({
 
     return (
         <Fragment>
-            <form className="OFF-form" onSubmit={e=> onSubmit(e)} className="mb-5">
+            <form className="OFF-form" onSubmit={e=> onSubmit(e)} className="OFF-mb-5">
                 <div className="form-row">
                     <div className="col-12 col-md-6 mb-2 mb-md-0">
                         <input type="text" placeholder="Enter search term..." name="querystr" value={querystr} onChange={e => onChange(e)}  className="form-control form-control-lg" />
