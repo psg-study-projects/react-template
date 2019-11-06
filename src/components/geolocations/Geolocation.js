@@ -3,8 +3,11 @@ import React, { Fragment, useState, useEffect } from 'react'; /* useEffect: call
 import PropTypes from 'prop-types';
 import { connect }  from 'react-redux';
 import Spinner from '../layout/Spinner';
-import 'startbootstrap-landing-page/css/landing-page.css';
-//import { Link }  from 'react-router-dom';
+//import 'startbootstrap-landing-page/css/landing-page.css';
+import ListingItem from '../../components/listings/ListingItem';
+import Listings from '../../components/listings/Listings';
+import SearchForm from '../../components/listings/SearchForm';
+import MajorNav from '../../components/common/MajorNav';
 import { getGeolocation }  from '../../actions/geolocation';
 
 const Geolocation = ({ 
@@ -17,20 +20,34 @@ const Geolocation = ({
         getGeolocation(match.params.id); // get ID from URL
     }, [getGeolocation, match.params.id]);
 
-    return loading || geolocation === null ? 
-        <Spinner /> 
-        : 
-        <Fragment>
-            <section className="container">
-                <div>
-                    <h1>Region Page -- {match.params.id}</h1>
-                </div>
-                <div>
-                    <h2>{geolocation.title}</h2>
-                    <p>{geolocation.body}</p>
-                </div>
-            </section>
-        </Fragment>;
+    return (
+        <Fragment> 
+            <MajorNav />
+            <header className="OFF-masthead text-white text-center">
+                <section className="container">
+                    <div className="row">
+                        <div className="col-md-12 col-lg-10 col-xl-8 mx-auto">
+                            <SearchForm />
+                        </div>
+                    </div>
+                </section>
+            </header>
+            {loading || geolocation === null ? 
+                    <Spinner /> 
+                    : 
+                    <section className="container">
+                        <div>
+                            <h1>Region Page -- {match.params.id}</h1>
+                        </div>
+                        <div>
+                            <h2>{geolocation.title}</h2>
+                            <p>{geolocation.body}</p>
+                        </div>
+                    </section>
+            }
+            <Listings />
+        </Fragment>
+    )
 
 }
 
