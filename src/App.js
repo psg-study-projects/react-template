@@ -13,6 +13,8 @@ import Geolocation from './components/geolocations/Geolocation';
 import Landing from './components/landing/Landing';
 import Listings from './components/listings/Listings';
 import ListingItem from './components/listings/ListingItem';
+import Terms from './components/common/Terms';
+import Privacy from './components/common/Privacy';
 //import Profiles from './components/profiles/Profiles';
 //import Posts from './components/posts/Posts';
 //import Post from './components/post/Post';
@@ -57,6 +59,8 @@ const App = () => {
                         */}
                         <Switch>
                             <Route exact path='/' component={Landing} />
+                            <Route exact path='/terms' component={Terms} />
+                            <Route exact path='/privacy' component={Privacy} />
                             <Route path='/listings' component={Listings} />
                             <Route exact path='/listing/:id' component={ListingItem} />
                             <Route exact path='/region/:id' component={Geolocation} />
