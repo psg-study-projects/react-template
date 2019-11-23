@@ -14,8 +14,8 @@ export const getListings = (query) => (dispatch) => {
     console.log(query);
     const payload = {
         ...query,
-        uid: '0717320a6078',
-        k: '38zQLicqMz8xQPlCv89KH5WWfjeeoBeQQ9SWV6Jl3J2WnxpoJcBJdg==',
+        uid: 'foo',
+        k: 'abc',
         l: 'ad',
         v: '1.2',
         n_ad: '5',
