@@ -14,7 +14,7 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "startbootstrap-landing-page": "^5.0.7"
+    "startbootstrap-landing-page": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
